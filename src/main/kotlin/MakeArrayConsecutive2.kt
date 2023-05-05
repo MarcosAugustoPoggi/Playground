@@ -2,6 +2,7 @@ fun main() {
     val statues = mutableListOf(6, 2, 3, 8)
     println(solution(statues))
     println(solutionShorter(statues))
+    println(betterSolution(statues))
 }
 
 
@@ -19,4 +20,9 @@ fun solution(statues: MutableList<Int>): Int {
     val totalStatues = consecutiveList.map { it }
 
     return totalStatues.size - statues.size
+}
+
+fun betterSolution(statues: MutableList<Int>): Int {
+    return (statues.minOf { it }..statues.maxOf { it }).count() - statues.size
+
 }
